@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>expenseDialog</class>
+ <widget class="QDialog" name="expenseDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>342</width>
+    <height>415</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Ajout dépense</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QFormLayout" name="expenInfoFormLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="expenTitleLabel">
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 12px; /* Conversion de .75rem en pixels, la valeur peut varier selon votre DPI */
+  color: #FFFFFF;
+  font-family: &quot;Inter var&quot;, &quot;ui-sans-serif&quot;, &quot;system-ui&quot;, &quot;-apple-system&quot;, &quot;system-ui&quot;, &quot;Segoe UI&quot;, &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, &quot;Arial&quot;, &quot;Noto Sans&quot;, &quot;sans-serif&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;
+  font-size: 18px; /* Conversion de 1.125rem en pixels */
+  font-weight: 600;
+  padding: 12px 19px; /* Conversion de .75rem et 1.2rem en pixels */
+  text-align: center;
+  /* QLabel n'a pas d'équivalent direct pour text-decoration, fill, stroke */
+  /* Les transitions et les hover states doivent être gérés dans le code C++ */
+  width: auto; /* QLabel ajuste sa taille au contenu par défaut */
+}
+
+/* Pour simuler l'état hover, vous devrez connecter un signal à un slot qui change le style du QLabel lors du survol de la souris. */
+</string>
+       </property>
+       <property name="text">
+        <string>Titre</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="expenTitleLineEdit">
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 12px; /* Adaptation de .75rem en pixels, ajustez selon la DPI */
+  color: #FFFFFF;
+  font-family: &quot;Inter var&quot;, &quot;ui-sans-serif&quot;, &quot;system-ui&quot;, &quot;-apple-system&quot;, &quot;system-ui&quot;, &quot;Segoe UI&quot;, &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, &quot;Arial&quot;, &quot;Noto Sans&quot;, &quot;sans-serif&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;
+  font-size: 18px; /* Adaptation de 1.125rem en pixels */
+  font-weight: 600;
+  padding: 12px 19px; /* Adaptation de .75rem et 1.2rem en pixels */
+  text-align: center;
+}
+
+QLineEdit:hover {
+  background-color: #374151; /* Couleur plus foncée lors du survol */
+}
+
+QLineEdit:focus {
+  border: 1px solid #6B7280; /* Bordure quand le QLineEdit a le focus */
+}
+</string>
+       </property>
+       <property name="placeholderText">
+        <string>Dépense</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="expenAmountLabel">
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 12px; /* Conversion de .75rem en pixels, la valeur peut varier selon votre DPI */
+  color: #FFFFFF;
+  font-family: &quot;Inter var&quot;, &quot;ui-sans-serif&quot;, &quot;system-ui&quot;, &quot;-apple-system&quot;, &quot;system-ui&quot;, &quot;Segoe UI&quot;, &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, &quot;Arial&quot;, &quot;Noto Sans&quot;, &quot;sans-serif&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;
+  font-size: 18px; /* Conversion de 1.125rem en pixels */
+  font-weight: 600;
+  padding: 12px 19px; /* Conversion de .75rem et 1.2rem en pixels */
+  text-align: center;
+  /* QLabel n'a pas d'équivalent direct pour text-decoration, fill, stroke */
+  /* Les transitions et les hover states doivent être gérés dans le code C++ */
+  width: auto; /* QLabel ajuste sa taille au contenu par défaut */
+}
+
+/* Pour simuler l'état hover, vous devrez connecter un signal à un slot qui change le style du QLabel lors du survol de la souris. */
+</string>
+       </property>
+       <property name="text">
+        <string>Montant</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="expenDateLabel">
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 12px; /* Conversion de .75rem en pixels, la valeur peut varier selon votre DPI */
+  color: #FFFFFF;
+  font-family: &quot;Inter var&quot;, &quot;ui-sans-serif&quot;, &quot;system-ui&quot;, &quot;-apple-system&quot;, &quot;system-ui&quot;, &quot;Segoe UI&quot;, &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, &quot;Arial&quot;, &quot;Noto Sans&quot;, &quot;sans-serif&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;
+  font-size: 18px; /* Conversion de 1.125rem en pixels */
+  font-weight: 600;
+  padding: 12px 19px; /* Conversion de .75rem et 1.2rem en pixels */
+  text-align: center;
+  /* QLabel n'a pas d'équivalent direct pour text-decoration, fill, stroke */
+  /* Les transitions et les hover states doivent être gérés dans le code C++ */
+  width: auto; /* QLabel ajuste sa taille au contenu par défaut */
+}
+
+/* Pour simuler l'état hover, vous devrez connecter un signal à un slot qui change le style du QLabel lors du survol de la souris. */
+</string>
+       </property>
+       <property name="text">
+        <string>Date</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QDateEdit" name="expenDateEdit">
+       <property name="styleSheet">
+        <string notr="true">QDateEdit {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 12px; /* Ajustez selon la DPI si nécessaire */
+  padding: 12px 19px; /* Ajustez selon la DPI si nécessaire */
+  color: #FFFFFF;
+  font-family: &quot;Inter var&quot;, &quot;ui-sans-serif&quot;, &quot;system-ui&quot;, &quot;-apple-system&quot;, &quot;system-ui&quot;, &quot;Segoe UI&quot;, &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, &quot;Arial&quot;, &quot;Noto Sans&quot;, &quot;sans-serif&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;
+  font-size: 18px; /* Ajustez la taille de la police si nécessaire */
+  font-weight: 600;
+  min-width: 120px; /* Assurez-vous que le champ est assez large */
+}
+
+QDateEdit:hover {
+  border: 1px solid #6B7280; /* Changement de couleur à survoler */
+}
+
+QDateEdit::drop-down {
+  subcontrol-origin: padding;
+  subcontrol-position: top right; /* Position à droite du champ de texte */
+  width: 15px; /* Largeur de la partie déroulante */
+  border-left-width: 1px; /* Bordure pour séparer le bouton du texte */
+  border-left-color: #6B7280;
+  border-left-style: solid; /* style de la bordure */
+  border-top-right-radius: 12px; /* Arrondi du bouton déroulant */
+  border-bottom-right-radius: 12px;
+}
+
+QDateEdit::down-arrow {
+  image: url(:/path/to/your/arrow/down_icon); /* Chemin vers votre icône */
+}
+
+QDateEdit:focus {
+  border: 1px solid #6B7280; /* Bordure en cas de focus */
+}
+</string>
+       </property>
+       <property name="dateTime">
+        <datetime>
+         <hour>20</hour>
+         <minute>0</minute>
+         <second>0</second>
+         <year>2000</year>
+         <month>1</month>
+         <day>1</day>
+        </datetime>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="expenDescLabel">
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 12px; /* Conversion de .75rem en pixels, la valeur peut varier selon votre DPI */
+  color: #FFFFFF;
+  font-family: &quot;Inter var&quot;, &quot;ui-sans-serif&quot;, &quot;system-ui&quot;, &quot;-apple-system&quot;, &quot;system-ui&quot;, &quot;Segoe UI&quot;, &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, &quot;Arial&quot;, &quot;Noto Sans&quot;, &quot;sans-serif&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;
+  font-size: 18px; /* Conversion de 1.125rem en pixels */
+  font-weight: 600;
+  padding: 12px 19px; /* Conversion de .75rem et 1.2rem en pixels */
+  text-align: center;
+  /* QLabel n'a pas d'équivalent direct pour text-decoration, fill, stroke */
+  /* Les transitions et les hover states doivent être gérés dans le code C++ */
+  width: auto; /* QLabel ajuste sa taille au contenu par défaut */
+}
+
+/* Pour simuler l'état hover, vous devrez connecter un signal à un slot qui change le style du QLabel lors du survol de la souris. */
+</string>
+       </property>
+       <property name="text">
+        <string>Description</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QTextEdit" name="expenDescTextEdit">
+       <property name="styleSheet">
+        <string notr="true">QTextEdit {
+  background-color: #111827;
+  color: #FFFFFF;
+  border: 1px solid transparent;
+  border-radius: .75rem;
+  padding: .75rem;
+  font-family: &quot;Inter var&quot;, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+QTextEdit:focus {
+  border: 1px solid #6B7280;
+  outline: none;
+}
+
+/* This will style the vertical scrollbar */
+QTextEdit::vertical-scrollbar {
+  border: none;
+  background-color: #374151;
+  width: 10px;
+  margin: 0.75rem;
+  border-radius: .375rem;
+}
+
+QTextEdit::vertical-scrollbar:handle {
+  background-color: #6B7280;
+  border-radius: .375rem;
+  min-height: 25px;
+}
+
+QTextEdit::vertical-scrollbar:handle:hover {
+  background-color: #9CA3AF;
+}
+
+QTextEdit::vertical-scrollbar:sub-line, QTextEdit::vertical-scrollbar:add-line {
+  border: none;
+  background-color: none;
+}
+
+QTextEdit::vertical-scrollbar:up-arrow, QTextEdit::vertical-scrollbar:down-arrow {
+  background: none;
+}
+
+QTextEdit::vertical-scrollbar:sub-page, QTextEdit::vertical-scrollbar:add-page {
+  background: none;
+}
+</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QDoubleSpinBox" name="expenAmountDoubleSpinBox">
+       <property name="styleSheet">
+        <string notr="true">QDoubleSpinBox {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 12px; /* Adaptation de .75rem en pixels, ajustez selon la DPI */
+  padding: 12px 19px; /* Adaptation de .75rem et 1.2rem en pixels */
+  color: #FFFFFF;
+  font-family: &quot;Inter var&quot;, &quot;ui-sans-serif&quot;, &quot;system-ui&quot;, &quot;-apple-system&quot;, &quot;system-ui&quot;, &quot;Segoe UI&quot;, &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, &quot;Arial&quot;, &quot;Noto Sans&quot;, &quot;sans-serif&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;
+  font-size: 9px; /* Adaptation de 1.125rem en pixels */
+  font-weight: 600;
+}
+
+QDoubleSpinBox:hover {
+  background-color: #374151; /* Couleur plus foncée lors du survol */
+}
+
+QDoubleSpinBox::up-button {
+  border-top-right-radius: 12px;
+  background: transparent;
+}
+
+QDoubleSpinBox::down-button {
+  border-bottom-right-radius: 12px;
+  background: transparent;
+}
+
+QDoubleSpinBox::up-arrow, QDoubleSpinBox::down-arrow {
+  image: url(:/path/to/your/icon); /* Vous devrez fournir le chemin d'accès à vos icônes de flèches */
+}
+
+QDoubleSpinBox:focus {
+  border: 1px solid #6B7280; /* Bordure quand le QDoubleSpinBox a le focus */
+}
+</string>
+       </property>
+       <property name="suffix">
+        <string>€</string>
+       </property>
+       <property name="maximum">
+        <double>100000.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QComboBox" name="expenCatComboBox">
+     <property name="styleSheet">
+      <string notr="true">QComboBox {
+  border: 2px solid #204a87; /* Blue border */
+  border-radius: 5px;
+  padding: 5px;
+  padding-right: 20px; /* Make room for the icon */
+  background-color: #000000; /* Black background */
+  color: white; /* White text color */
+}
+
+QComboBox::drop-down {
+  subcontrol-origin: padding;
+  subcontrol-position: top right;
+  width: 15px;
+  border-left-width: 1px;
+  border-left-color: #204a87;
+  border-left-style: solid; /* just a single line */
+  border-top-right-radius: 3px; /* same radius as the QComboBox */
+  border-bottom-right-radius: 3px;
+}
+
+QComboBox::down-arrow {
+  image: url(:/icons/down-arrow.png); /* Replace with the actual path to your down arrow icon */
+}
+
+QComboBox::down-arrow:on { /* shift the arrow when popup is open */
+  top: 1px;
+  left: 1px;
+}
+
+QComboBox:hover { /* Hover effect for the QComboBox itself */
+  background-color: #333333; /* Dark grey background */
+}
+
+QComboBox::right-icon {
+  image: url(:/icons/star.png); /* Replace with the actual path to your star icon */
+  position: absolute;
+  top: 1px;
+  right: 3px;
+  width: 16px;
+  height: 16px;
+}
+
+QComboBox QAbstractItemView {
+  border: 2px solid #204a87;
+  selection-background-color: #204a87; /* Blue background for the selected item */
+  background-color: #000000; /* Black background */
+  color: white; /* White text color */
+}
+
+QComboBox QAbstractItemView::item {
+  background-color: #000000; /* Black background for each item */
+  color: white; /* White text color for each item */
+  padding: 2px; /* Optional: add padding for each item */
+}
+
+ComboBox QAbstractItemView::item:hover {
+  /* Hover effect for individual items in the dropdown list */
+  background-color: white; /* White background for hovered item */
+  color: black; /* Black text color for hovered item */
+}
+
+QComboBox QAbstractItemView::item:selected {
+  background-color: #204a87; /* Blue background for the selected item */
+  color: white; /* White text color for the selected item */
+}
+
+</string>
+     </property>
+     <property name="placeholderText">
+      <string>Catégorie</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="dialogButtonBox">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+  background-color: #5C6BC0; /* Une teinte de bleu indigo */
+  color: #FFFFFF; /* Texte en blanc pour contraster avec le fond bleu */
+  border-radius: 10px; /* Bords légèrement arrondis pour un look subtil */
+  padding: 10px 25px; /* Espacement intérieur confortable */
+  font-weight: bold; /* Texte en gras pour ressortir sur le fond */
+  border: none; /* Pas de bordure pour un look épuré */
+}
+
+QPushButton:hover {
+  background-color: #7986CB; /* Une teinte de bleu plus claire au survol */
+}
+
+QPushButton:pressed {
+  background-color: #3949AB; /* Une teinte de bleu plus foncée lors du clic */
+  /* Imitation d'un effet d'enfoncement */
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>dialogButtonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>expenseDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dialogButtonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>expenseDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

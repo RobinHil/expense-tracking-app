@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>registerDialog</class>
+ <widget class="QDialog" name="registerDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>318</width>
+    <height>368</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Inscription</string>
+  </property>
+  <layout class="QFormLayout" name="formLayout_2">
+   <item row="1" column="1">
+    <layout class="QFormLayout" name="formLayout">
+     <item row="1" column="0">
+      <widget class="QLabel" name="usernameLabel">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	color: white;
+}</string>
+       </property>
+       <property name="text">
+        <string>Nom d'utilisateur</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="usernameLineEdit">
+       <property name="placeholderText">
+        <string>Nom d'utilisateur</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="passwdLabel">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	color: white;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Mot de passe</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="passwdLineEdit">
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+       <property name="placeholderText">
+        <string>Mot de passe</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="birthLabel">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	color: white;
+}</string>
+       </property>
+       <property name="text">
+        <string>Date de naissance</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QDateEdit" name="birthDateEdit">
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="emailLabel">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	color: white;
+}</string>
+       </property>
+       <property name="text">
+        <string>Adresse mail</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLineEdit" name="emailLineEdit">
+       <property name="placeholderText">
+        <string>Email</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="genderLabel">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	color: white;
+}</string>
+       </property>
+       <property name="text">
+        <string>Genre</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <layout class="QHBoxLayout" name="genderLayout">
+       <item>
+        <widget class="QRadioButton" name="manRadioButton">
+         <property name="styleSheet">
+          <string notr="true">QRadioButton{
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string>Homme</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="womanRadioButton">
+         <property name="styleSheet">
+          <string notr="true">QRadioButton{
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string>Femme</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="9" column="0" colspan="2">
+      <layout class="QHBoxLayout" name="buttonsLayout">
+       <item>
+        <widget class="QPushButton" name="saveButton">
+         <property name="text">
+          <string>S'inscrire</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="cancelButton">
+         <property name="text">
+          <string>Annuler</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="3" column="1">
+      <widget class="QCheckBox" name="seePasswdCheckBox">
+       <property name="styleSheet">
+        <string notr="true">QCheckBox{
+	color: white;
+}</string>
+       </property>
+       <property name="text">
+        <string>Voir</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="passwdConfirmLabel">
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	color: white;
+}</string>
+       </property>
+       <property name="text">
+        <string>Confirmation</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="passwdConfirmLineEdit">
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+       <property name="placeholderText">
+        <string>Mot de passe</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QCheckBox" name="seePasswdConfirmCheckBox">
+       <property name="styleSheet">
+        <string notr="true">QCheckBox{
+	color: white;
+}</string>
+       </property>
+       <property name="text">
+        <string>Voir</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLabel" name="titleLabel">
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Inscription</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

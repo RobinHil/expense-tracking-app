@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>loginDialog</class>
+ <widget class="QDialog" name="loginDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>291</width>
+    <height>220</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Connexion</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+    background-image: url(':/img/black.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    /*background-size: cover;*/
+}QPushButton {
+    color: #FFFFFF;
+    font: bold 16px;
+    border: none;
+    border-radius: 15px; /* Ajoutez ou réduisez pour obtenir le niveau d'arrondi désiré */
+    background: rgba(50, 50, 50, 0.7); /* Plus foncé avec moins de transparence */
+    padding: 10px 20px; /* Plus de padding pour un bouton plus grand et texte centré */
+    min-width: 80px;
+    min-height: 40px; /* Pour une forme plus ronde et équilibrée */
+}
+
+QPushButton:hover {
+    background: rgba(50, 50, 50, 0.8); /* Encore plus foncé au survol */
+}
+
+QPushButton:pressed {
+    background: rgba(50, 50, 50, 0.9); /* Presque opaque quand le bouton est pressé */
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QVBoxLayout" name="mainLayout">
+     <item>
+      <widget class="QLabel" name="titleLabel">
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	color: white;
+}</string>
+       </property>
+       <property name="text">
+        <string>Connexion</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="usernameLayout">
+       <item>
+        <widget class="QLabel" name="usernameLabel">
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string>Utilisateur</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="usernameLineEdit">
+         <property name="placeholderText">
+          <string>Utilisateur</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="passwdLayout">
+       <item>
+        <widget class="QLabel" name="passwdLabel">
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string>Mot de passe</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="passwdLineEdit">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+         <property name="placeholderText">
+          <string>Mot de passe</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="seePasswdCheckBox">
+       <property name="styleSheet">
+        <string notr="true">QCheckBox{
+	color: white;
+}</string>
+       </property>
+       <property name="text">
+        <string>Voir</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="buttonsLayout">
+       <item>
+        <widget class="QPushButton" name="loginButton">
+         <property name="text">
+          <string>Connexion</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/téléchargement.png</normaloff>:/téléchargement.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="registerButton">
+         <property name="text">
+          <string>Inscription</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

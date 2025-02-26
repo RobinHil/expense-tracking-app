@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>814</width>
+    <height>441</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Suivi de dépenses</string>
+  </property>
+  <widget class="QWidget" name="mainWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_6">
+    <item>
+     <widget class="QGroupBox" name="mainGroupBox">
+      <property name="title">
+       <string>Dépenses</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <layout class="QHBoxLayout" name="mainBoxLayout">
+         <item>
+          <layout class="QVBoxLayout" name="calBoxLayout">
+           <item>
+            <layout class="QHBoxLayout" name="periodChoiceBoxLayout">
+             <item>
+              <widget class="QRadioButton" name="dayRadioButton">
+               <property name="text">
+                <string>Jour</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="monthRadioButton">
+               <property name="text">
+                <string>Mois</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="yearRadioButton">
+               <property name="text">
+                <string>Année</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QCalendarWidget" name="expenCalendarWidget">
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QCalendarWidget {
+  border: 2px solid #003333; /* Dark teal border */
+  border-radius: 6px;
+}
+
+/* Header style (month and year navigation) */
+QCalendarWidget QWidget#qt_calendar_navigationbar {
+  background: qlineargradient(
+    x1:0, y1:0, x2:1, y2:1,
+    stop:0 #004D40, /* Dark green start */
+    stop:1 #001F3F  /* Dark blue end */
+  );
+  color: #E0E0E0; /* Light grey text */
+}
+
+/* Weekday header style */
+QCalendarWidget QHeaderView {
+  background-color: transparent;
+  border: none;
+}
+
+QCalendarWidget QHeaderView::section {
+  background-color: transparent;
+  color: #E0E0E0; /* Light grey text */
+}
+
+/* Individual day cell style */
+QCalendarWidget QTableView {
+  selection-background-color: rgba(0, 0, 0, 120); /* Darker selection background */
+}
+
+QCalendarWidget QTableView QWidget::item {
+  color: #E0E0E0; /* Light grey text */
+  padding: 5px;
+  margin: 2px;
+  background-color: transparent; /* Cells will show the main widget's background */
+  border-radius: 4px; /* Rounded corners for the items */
+}
+
+/* Selected and hovered item style */
+QCalendarWidget QTableView QWidget::item:selected {
+  background-color: rgba(0, 0, 0, 120); /* Darker selection background */
+}
+
+QCalendarWidget QTableView QWidget::item:hover {
+  background-color: rgba(0, 0, 0, 60); /* Less opaque black for hover effect */
+}
+
+/* Adjustments for out-of-month days */
+QCalendarWidget QTableView QWidget::item:disabled {
+  color: #888888; /* Dimmed text for disabled items */
+}
+
+/* Scrollbar styles */
+QCalendarWidget QScrollBar:vertical {
+  border: 1px solid #003333;
+  background: transparent;
+  width: 10px;
+  margin: 20px 0 20px 0;
+}
+
+QCalendarWidget QScrollBar::handle:vertical {
+  background: #006060;
+  min-height: 20px;
+  border-radius: 5px;
+}
+
+QCalendarWidget QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+  background: none;
+}
+
+</string>
+             </property>
+             <property name="gridVisible">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="expenDisplayBoxLayout">
+           <item>
+            <layout class="QHBoxLayout" name="expenDisplayTopBoxLayout">
+             <item>
+              <widget class="QComboBox" name="categoryChoiceComboBox">
+               <property name="maximumSize">
+                <size>
+                 <width>175</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QComboBox {
+  border: 2px solid #204a87; /* Blue border */
+  border-radius: 5px;
+  padding: 5px;
+  padding-right: 20px; /* Make room for the icon */
+  background-color: qlineargradient(
+    x1:0, y1:0, x2:0, y2:1,
+    stop:0 #6991c7, /* Lighter blue at the top */
+    stop:1 #204a87 /* Darker blue at the bottom */
+  );
+  color: white; /* White text color */
+}
+
+QComboBox::drop-down {
+  subcontrol-origin: padding;
+  subcontrol-position: top right;
+  width: 15px;
+  border-left-width: 1px;
+  border-left-color: #204a87;
+  border-left-style: solid; /* just a single line */
+  border-top-right-radius: 3px; /* same radius as the QComboBox */
+  border-bottom-right-radius: 3px;
+}
+
+QComboBox::down-arrow {
+  image: url(:/icons/down-arrow.png); /* Replace with the actual path to your down arrow icon */
+}
+
+QComboBox::down-arrow:on { /* shift the arrow when popup is open */
+  top: 1px;
+  left: 1px;
+}
+
+QComboBox::right-icon {
+  image: url(:/icons/star.png); /* Replace with the actual path to your star icon */
+  position: absolute;
+  top: 1px;
+  right: 3px;
+  width: 16px;
+  height: 16px;
+}
+
+/* Style pour la vue des éléments déroulés */
+QComboBox QAbstractItemView {
+  border: 2px solid #204a87;
+  selection-background-color: #6991c7;
+  background-color: black; /* Fond noir pour les éléments déroulés */
+  color: white; /* Texte blanc pour les éléments déroulés */
+}
+
+/* Style pour les éléments individuels */
+QComboBox QAbstractItemView::item {
+  color: white; /* Couleur du texte des éléments */
+  background-color: black; /* Couleur de fond des éléments */
+}
+
+/* Style pour l'élément sélectionné */
+QComboBox QAbstractItemView::item:selected {
+  background-color: #204a87; /* Fond bleu pour l'élément sélectionné */
+  color: white; /* Texte blanc pour l'élément sélectionné */
+}
+</string>
+               </property>
+               <property name="placeholderText">
+                <string>Catégorie</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="budgetBoxLayout">
+               <item>
+                <widget class="QPushButton" name="totalExpenButton">
+                 <property name="minimumSize">
+                  <size>
+                   <width>170</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Dépenses</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="Line" name="budgetLine">
+                 <property name="minimumSize">
+                  <size>
+                   <width>172</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="totalBudgetButton">
+                 <property name="minimumSize">
+                  <size>
+                   <width>170</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Budget</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QTableWidget" name="expenTableWidget">
+             <property name="styleSheet">
+              <string notr="true">QTableWidget {
+  border: 2px solid #003333; /* Dark teal border */
+  border-radius: 6px;
+  background: #F5f5dc;
+  color: #000000; /* Light grey text color for better contrast */
+}
+
+QTableWidget::item {
+  padding: 5px;
+  margin: 2px;
+  background-color: transparent; /* Make the item background transparent to show the QListWidget's gradient */
+  border-radius: 4px; /* Rounded corners for the items */
+}
+
+QTableWidget::item:selected {
+  color: #000000;
+  background-color: rgba(0, 0, 0, 30); /* Semi-transparent white selection */
+}
+
+QTableWidget::item:hover {
+    background-color: rgba(0, 0, 0, 20); /* Less opaque white for hover */
+	color: #000000;
+}
+
+/* Style the scroll bar */
+QScrollBar:vertical {
+  border: 1px solid #003333;
+  background: transparent; /* Make the scrollbar background transparent */
+  width: 10px;
+  margin: 20px 0 20px 0; /* Top and bottom margins */
+}
+
+QScrollBar::handle:vertical {
+  background: #006060; /* Scroll handle color that matches the darker theme */
+  min-height: 20px;
+  border-radius: 5px; /* Rounded corners for the handle */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+  background: none;
+}
+</string>
+             </property>
+             <column>
+              <property name="text">
+               <string>Id</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Nom</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Montant</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Date</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Catégorie</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QLineEdit" name="searchLineEdit">
+               <property name="styleSheet">
+                <string notr="true">QLineEdit {
+  border: 2px solid #9E9E9E; /* Bordure grise */
+  border-radius: 10px; /* Bords arrondis */
+  padding: 5px; /* Espacement intérieur pour que le texte ne touche pas les bords */
+  background-color: #FFFFFF; /* Fond blanc pour la lisibilité */
+  color: #000000; /* Texte en noir */
+}
+
+QLineEdit:focus {
+  border-color: #5C6BC0; /* Bordure bleue lors de la sélection */
+}
+
+QLineEdit:disabled {
+  background-color: #E0E0E0; /* Fond gris lorsqu'il est désactivé */
+  color: #BDBDBD; /* Texte en gris pour indiquer qu'il n'est pas éditable */
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="placeholderText">
+                <string>Rechercher</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="searchButton">
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+  background-color: #5C6BC0; /* Une teinte de bleu indigo */
+  color: #FFFFFF; /* Texte en blanc pour contraster avec le fond bleu */
+  border-radius: 10px; /* Bords légèrement arrondis pour un look subtil */
+  padding: 7px 6px; /* Espacement intérieur confortable */
+  font-weight: bold; /* Texte en gras pour ressortir sur le fond */
+  border: none; /* Pas de bordure pour un look épuré */
+}
+
+QPushButton:hover {
+  background-color: #7986CB; /* Une teinte de bleu plus claire au survol */
+}
+
+QPushButton:pressed {
+  background-color: #3949AB; /* Une teinte de bleu plus foncée lors du clic */
+  /* Imitation d'un effet d'enfoncement */
+}
+</string>
+               </property>
+               <property name="text">
+                <string>Rechercher</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="expenActionsBoxLayout">
+             <item>
+              <widget class="QPushButton" name="expenAddButton">
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+  background-color: #5C6BC0; /* Une teinte de bleu indigo */
+  color: #FFFFFF; /* Texte en blanc pour contraster avec le fond bleu */
+  border-radius: 10px; /* Bords légèrement arrondis pour un look subtil */
+  padding: 10px 25px; /* Espacement intérieur confortable */
+  font-weight: bold; /* Texte en gras pour ressortir sur le fond */
+  border: none; /* Pas de bordure pour un look épuré */
+}
+
+QPushButton:hover {
+  background-color: #7986CB; /* Une teinte de bleu plus claire au survol */
+}
+
+QPushButton:pressed {
+  background-color: #3949AB; /* Une teinte de bleu plus foncée lors du clic */
+  /* Imitation d'un effet d'enfoncement */
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+</string>
+               </property>
+               <property name="text">
+                <string>Ajouter</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="expenDeleteButton">
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+  background-color: #5C6BC0; /* Une teinte de bleu indigo */
+  color: #FFFFFF; /* Texte en blanc pour contraster avec le fond bleu */
+  border-radius: 10px; /* Bords légèrement arrondis pour un look subtil */
+  padding: 10px 25px; /* Espacement intérieur confortable */
+  font-weight: bold; /* Texte en gras pour ressortir sur le fond */
+  border: none; /* Pas de bordure pour un look épuré */
+}
+
+QPushButton:hover {
+  background-color: #7986CB; /* Une teinte de bleu plus claire au survol */
+}
+
+QPushButton:pressed {
+  background-color: #3949AB; /* Une teinte de bleu plus foncée lors du clic */
+  /* Imitation d'un effet d'enfoncement */
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+</string>
+               </property>
+               <property name="text">
+                <string>Supprimer</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>814</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="fileMenu">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="csvExportAction"/>
+    <addaction name="chartsAction"/>
+    <addaction name="separator"/>
+    <addaction name="exitAction"/>
+   </widget>
+   <widget class="QMenu" name="categoryMenu">
+    <property name="title">
+     <string>Catégories</string>
+    </property>
+    <addaction name="addCatAction"/>
+    <addaction name="deleteCatAction"/>
+    <addaction name="separator"/>
+    <addaction name="showCatAction"/>
+   </widget>
+   <widget class="QMenu" name="helpMenu">
+    <property name="title">
+     <string>Aide</string>
+    </property>
+    <addaction name="aboutAction"/>
+    <addaction name="useAction"/>
+    <addaction name="contactAction"/>
+   </widget>
+   <widget class="QMenu" name="reminderMenu">
+    <property name="title">
+     <string>Rappel</string>
+    </property>
+    <addaction name="addRemAction"/>
+    <addaction name="delRemAction"/>
+    <addaction name="separator"/>
+    <addaction name="showRemAction"/>
+   </widget>
+   <widget class="QMenu" name="menuCompte">
+    <property name="title">
+     <string>Compte</string>
+    </property>
+    <addaction name="actionModifier"/>
+   </widget>
+   <addaction name="fileMenu"/>
+   <addaction name="menuCompte"/>
+   <addaction name="categoryMenu"/>
+   <addaction name="reminderMenu"/>
+   <addaction name="helpMenu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="csvExportAction">
+   <property name="text">
+    <string>Export CSV</string>
+   </property>
+  </action>
+  <action name="exitAction">
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+  </action>
+  <action name="addCatAction">
+   <property name="text">
+    <string>Ajouter</string>
+   </property>
+  </action>
+  <action name="deleteCatAction">
+   <property name="text">
+    <string>Supprimer</string>
+   </property>
+  </action>
+  <action name="showCatAction">
+   <property name="text">
+    <string>Afficher</string>
+   </property>
+  </action>
+  <action name="aboutAction">
+   <property name="text">
+    <string>À propos</string>
+   </property>
+  </action>
+  <action name="useAction">
+   <property name="text">
+    <string>Utilisation</string>
+   </property>
+  </action>
+  <action name="contactAction">
+   <property name="text">
+    <string>Contacts</string>
+   </property>
+  </action>
+  <action name="addRemAction">
+   <property name="text">
+    <string>Ajouter</string>
+   </property>
+  </action>
+  <action name="delRemAction">
+   <property name="text">
+    <string>Supprimer</string>
+   </property>
+  </action>
+  <action name="showRemAction">
+   <property name="text">
+    <string>Afficher</string>
+   </property>
+  </action>
+  <action name="chartsAction">
+   <property name="text">
+    <string>Graphiques</string>
+   </property>
+  </action>
+  <action name="actionModifier">
+   <property name="text">
+    <string>Modifier</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
